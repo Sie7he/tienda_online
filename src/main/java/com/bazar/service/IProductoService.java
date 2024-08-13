@@ -8,7 +8,7 @@ public interface IProductoService {
 
     List<Producto> getProductos();
 
-    void saveProducto(Producto producto);
+    Producto saveProducto(Producto producto);
 
     Producto findProducto(Long id);
 

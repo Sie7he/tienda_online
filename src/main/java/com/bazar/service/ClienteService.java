@@ -15,7 +15,7 @@ public class ClienteService implements IClienteService{
 
     @Override
     public List<Cliente> getClientes() {
-        return clienteRepository.findAll();
+        return clienteRepository.findAllByEstadoTrue();
     }
 
     @Override
@@ -26,7 +26,7 @@ public class ClienteService implements IClienteService{
 
     @Override
     public Cliente findCliente(Long id) {
-        return clienteRepository.findById(id).orElse(null);
+        return clienteRepository.findByEstadoTrueAndId(id).orElse(null);
     }
 
     @Override
@@ -36,6 +36,6 @@ public class ClienteService implements IClienteService{
 
     @Override
     public void deleteCliente(Long id) {
-        clienteRepository.logicDelete(id);
+        clienteRepository.desactiveCliente(id);
     }
 }

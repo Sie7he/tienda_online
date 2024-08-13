@@ -8,10 +8,8 @@ public interface IVentaService {
 
     List<Venta> getVentas();
 
-    Venta saveVenta(Venta venta);
-
     Venta findVenta(Long id);
 
-
+    Venta RegistrarVenta(Venta venta);
 
 }

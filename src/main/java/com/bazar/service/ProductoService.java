@@ -15,27 +15,27 @@ public class ProductoService implements IProductoService{
 
     @Override
     public List<Producto> getProductos() {
-        return productoRepository.findAll();
+        return productoRepository.findAllByEstadoTrue();
     }
 
     @Override
-    public void saveProducto(Producto producto) {
-        productoRepository.save(producto);
+    public Producto saveProducto(Producto producto) {
+       return productoRepository.save(producto);
     }
 
     @Override
     public Producto findProducto(Long id) {
-       return productoRepository.findById(id).orElse(null);
+       return productoRepository.findByEstadoTrueAndId(id).orElse(null);
     }
 
     @Override
     public Producto updateProducto(Producto producto) {
         this.saveProducto(producto);
-        return this.findProducto(producto.getId_producto());
+        return this.findProducto(producto.getId());
     }
 
     @Override
     public void deleteProducto(Long id) {
-        productoRepository.logicDelete(id);
+        productoRepository.desactiveProduct(id);
     }
 }
