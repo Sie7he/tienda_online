@@ -12,7 +12,9 @@ public interface IProductoService {
 
     Producto findProducto(Long id);
 
-    Producto updateProducto(Producto producto);
+    Producto updateProducto(Producto producto, Long id);
 
     void deleteProducto(Long id);
+
+    List<Producto> getProductosSortByPrice();
 }
